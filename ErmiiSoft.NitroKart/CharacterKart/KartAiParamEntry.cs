@@ -2,7 +2,7 @@
 
 public class KartAiParamEntry
 {
-    public uint RivalAggressiveness;
-    public uint GroupControl;
-    public uint CpuRubberBanding;
+    public uint RivalAggressiveness { get; set; }
+    public uint GroupControl { get; set; }
+    public uint CpuRubberBanding { get; set; }
 }

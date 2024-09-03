@@ -1,12 +1,11 @@
 using Avalonia.Controls;
 
-namespace ErmiiSoft.MkdsKartAiParamEditor.Views
+namespace ErmiiSoft.MkdsKartAiParamEditor.Views;
+
+public partial class MainWindow : Window
 {
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

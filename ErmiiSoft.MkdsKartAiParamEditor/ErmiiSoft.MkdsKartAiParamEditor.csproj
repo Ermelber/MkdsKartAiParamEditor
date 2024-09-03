@@ -22,4 +22,8 @@
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ErmiiSoft.NitroKart\ErmiiSoft.NitroKart.csproj" />
+  </ItemGroup>
 </Project>
