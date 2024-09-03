@@ -20,15 +20,9 @@
 	<DockPanel>
 		<Menu DockPanel.Dock="Top">
 			<MenuItem Header="_File">
-				<MenuItem Header="_Open..."/>
-				<Separator/>
-				<MenuItem Header="_Exit"/>
-			</MenuItem>
-			<MenuItem Header="_Edit">
-				<MenuItem Header="Copy"/>
-				<MenuItem Header="Paste"/>
+				<MenuItem Header="_Open..." Command="{Binding OpenFileAsync}"/>
 			</MenuItem>
 		</Menu>
-		<v:KartAiParamsEditorView/>
+		<v:KartAiParamsEditorView DataContext="{Binding KartAiParamsEditorViewModel}"/>
 	</DockPanel>
 </Window>

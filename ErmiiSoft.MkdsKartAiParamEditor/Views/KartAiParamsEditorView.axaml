@@ -7,9 +7,69 @@
             xmlns:vm="using:ErmiiSoft.MkdsKartAiParamEditor.ViewModels"
              x:Class="ErmiiSoft.MkdsKartAiParamEditor.Views.KartAiParamsEditorView"
 			 x:DataType="vm:KartAiParamsEditorViewModel">
-	<StackPanel Margin="20">
-		<v:KartAiParamsEditorEntryView />
-		<v:KartAiParamsEditorEntryView />
-		<v:KartAiParamsEditorEntryView />
-	</StackPanel>
+	<ScrollViewer>
+		<StackPanel Margin="20">
+
+			<StackPanel Orientation="Horizontal">
+				<StackPanel Width="300">
+					<TextBlock>Grand Prix 50cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelGrandPrix50cc}" />
+				</StackPanel>
+				<StackPanel Width="300">
+					<TextBlock>Grand Prix 100cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelGrandPrix100cc}" />
+				</StackPanel>
+				<StackPanel Width="300">
+					<TextBlock>Grand Prix 150cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelGrandPrix150cc}" />
+				</StackPanel>
+			</StackPanel>
+
+
+			<StackPanel Orientation="Horizontal">
+				<StackPanel Width="300">
+					<TextBlock>Versus Easy 50cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelVersusEasy50cc}" />
+				</StackPanel>
+				<StackPanel Width="300">
+					<TextBlock>Versus Normal 50cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelVersusNormal50cc}" />
+				</StackPanel>
+				<StackPanel Width="300">
+					<TextBlock>Versus Hard 50cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelVersusHard50cc}" />
+				</StackPanel>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal">
+				<StackPanel Width="300">
+					<TextBlock>Versus Easy 100cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelVersusEasy100cc}" />
+				</StackPanel>
+				<StackPanel Width="300">
+					<TextBlock>Versus Normal 100cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelVersusNormal100cc}" />
+				</StackPanel>
+				<StackPanel Width="300">
+					<TextBlock>Versus Hard 100cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelVersusHard100cc}" />
+				</StackPanel>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal">
+				<StackPanel Width="300">
+					<TextBlock>Versus Easy 150cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelVersusEasy150cc}" />
+				</StackPanel>
+				<StackPanel Width="300">
+					<TextBlock>Versus Normal 150cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelVersusNormal150cc}" />
+				</StackPanel>
+				<StackPanel Width="300">
+					<TextBlock>Versus Hard 150cc</TextBlock>
+					<v:KartAiParamsEditorEntryView DataContext="{Binding EntryViewModelVersusHard150cc}" />
+				</StackPanel>
+			</StackPanel>
+		</StackPanel>
+	</ScrollViewer>
 </UserControl>

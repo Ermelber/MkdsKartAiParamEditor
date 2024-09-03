@@ -22,10 +22,8 @@ namespace ErmiiSoft.MkdsKartAiParamEditor
                 // Line below is needed to remove Avalonia data validation.
                 // Without this line you will get duplicate validations from both Avalonia and CT
                 BindingPlugins.DataValidators.RemoveAt(0);
-                desktop.MainWindow = new MainWindow
-                {
-                    DataContext = new MainWindowViewModel(),
-                };
+                desktop.MainWindow = new MainWindow();
+                desktop.MainWindow.DataContext = new MainWindowViewModel(desktop.MainWindow.StorageProvider);
             }
 
             base.OnFrameworkInitializationCompleted();
