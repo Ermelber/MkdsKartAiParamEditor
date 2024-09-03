@@ -12,11 +12,11 @@
 
 			<StackPanel Margin="0 0 0 20">
 				<StackPanel Orientation="Horizontal" >
-				<TextBlock Margin="0 0 10 0" VerticalAlignment="Center">Select a Course:</TextBlock>
-				<NumericUpDown IsReadOnly="{Binding IsReadOnly}" Width="300" Minimum="0" FormatString="0" Maximum="{Binding CourseIdMax}" Value="{Binding CourseId}"></NumericUpDown>
+					<TextBlock Margin="0 0 10 0" VerticalAlignment="Center">Select a Course:</TextBlock>
+					<ComboBox Width="300" ItemsSource="{Binding CourseList}" SelectedIndex="{Binding CourseId}"></ComboBox>
 				</StackPanel>
 			</StackPanel>
-			
+
 			<StackPanel Orientation="Horizontal">
 				<StackPanel Width="300">
 					<TextBlock>Grand Prix 50cc</TextBlock>

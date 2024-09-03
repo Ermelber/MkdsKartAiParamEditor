@@ -1,20 +1,24 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using ErmiiSoft.NitroKart.CharacterKart;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ErmiiSoft.MkdsKartAiParamEditor.ViewModels;
 
 public partial class KartAiParamsEditorViewModel : ViewModelBase
 {
+    private const string COURSE_LIST_FILE_PATH = "CourseList.txt";
+
     public bool IsFileLoaded => _kartAiParam is not null;
 
     [ObservableProperty]
     private int _courseId = 0;
     [ObservableProperty]
-    private int _courseIdMax = 0;
-    [ObservableProperty]
     private bool _isReadOnly;
+    [ObservableProperty]
+    private List<string> _courseList = new();
 
     [ObservableProperty]
     private KartAiParamsEditorEntryViewModel _entryViewModelGrandPrix50cc = new();
@@ -59,13 +63,24 @@ public partial class KartAiParamsEditorViewModel : ViewModelBase
 
         _kartAiParam = new KartAiParam(await File.ReadAllBytesAsync(path));
 
-        CourseIdMax = _kartAiParam.Entries.Length - 1;
         CourseId = 0;
+
+        await LoadCourseListAsync(_kartAiParam.Entries.Length);
 
         LoadSelectedCourseEntries();
 
         IsReadOnly = false;
         IsInitialized = true;
+    }
+
+    private async Task LoadCourseListAsync(int length)
+    {
+        if (!File.Exists(COURSE_LIST_FILE_PATH))
+            await File.WriteAllTextAsync(COURSE_LIST_FILE_PATH, Resources.Resources.DefaultCourseList);
+
+        var textFile = await File.ReadAllLinesAsync(COURSE_LIST_FILE_PATH);
+
+        CourseList = textFile.Take(length).Select((x, i) => $"{i + 1} - {x}").ToList();
     }
 
     public async Task SaveFileAsync(string path)
