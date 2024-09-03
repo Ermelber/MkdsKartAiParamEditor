@@ -1,0 +1,3 @@
+[submodule "MarioKartToolbox"]
+	path = MarioKartToolbox
+	url = https://github.com/HaroohiePals/MarioKartToolbox.git
