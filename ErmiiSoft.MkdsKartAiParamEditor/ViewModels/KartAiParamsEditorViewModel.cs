@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using ErmiiSoft.NitroKart.CharacterKart;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace ErmiiSoft.MkdsKartAiParamEditor.ViewModels;
@@ -34,9 +35,12 @@ public partial class KartAiParamsEditorViewModel : ViewModelBase
     [ObservableProperty] 
     public KartAiParamsEditorEntryViewModel _entryViewModelVersusHard150cc = new();
 
+    private KartAiParam? _kartAiParams;
 
     public async Task LoadFileAsync(string path)
     {
+        _kartAiParams = new KartAiParam(await File.ReadAllBytesAsync(path));
+
         await Task.CompletedTask;
     }
 }

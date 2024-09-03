@@ -8,10 +8,10 @@
 			 x:DataType="vm:KartAiParamsEditorEntryViewModel">
 	<StackPanel Margin="20">
 		<Label>Rival Aggressiveness:</Label>
-		<NumericUpDown Minimum="0" Value="{Binding RivalAggressiveness}"></NumericUpDown>
+		<NumericUpDown Value="{Binding RivalAggressiveness}"></NumericUpDown>
 		<Label>Group Control:</Label>
-		<NumericUpDown Minimum="0" Value="{Binding GroupControl}"></NumericUpDown>
+		<NumericUpDown Value="{Binding GroupControl}"></NumericUpDown>
 		<Label>CPU Rubber Banding:</Label>
-		<NumericUpDown Minimum="0" Value="{Binding CpuRubberBanding}"></NumericUpDown>
+		<NumericUpDown Value="{Binding CpuRubberBanding}"></NumericUpDown>
 	</StackPanel>
 </UserControl>

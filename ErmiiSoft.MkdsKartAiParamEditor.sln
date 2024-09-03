@@ -7,6 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErmiiSoft.MkdsKartAiParamEd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErmiiSoft.NitroKart", "ErmiiSoft.NitroKart\ErmiiSoft.NitroKart.csproj", "{E02E35F9-BCF8-42BA-8D3D-83E56B508B74}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Submodules", "Submodules", "{13B8E3F1-8796-41EA-9998-1D8FC5529CF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaroohiePals.Core", "MarioKartToolbox\src\HaroohiePals.Core\HaroohiePals.Core.csproj", "{EBFC7631-1B44-4FC8-B50F-609BE62660CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaroohiePals.IO", "MarioKartToolbox\src\HaroohiePals.IO\HaroohiePals.IO.csproj", "{5CC2260E-8472-40A1-B03F-B83DCFF9D248}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaroohiePals.Mathematics", "MarioKartToolbox\src\HaroohiePals.Math\HaroohiePals.Mathematics.csproj", "{4A56551A-72BB-4CCC-9DAE-A6C14F5890E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +29,26 @@ Global
 		{E02E35F9-BCF8-42BA-8D3D-83E56B508B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E02E35F9-BCF8-42BA-8D3D-83E56B508B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E02E35F9-BCF8-42BA-8D3D-83E56B508B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBFC7631-1B44-4FC8-B50F-609BE62660CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBFC7631-1B44-4FC8-B50F-609BE62660CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBFC7631-1B44-4FC8-B50F-609BE62660CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBFC7631-1B44-4FC8-B50F-609BE62660CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CC2260E-8472-40A1-B03F-B83DCFF9D248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC2260E-8472-40A1-B03F-B83DCFF9D248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC2260E-8472-40A1-B03F-B83DCFF9D248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC2260E-8472-40A1-B03F-B83DCFF9D248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A56551A-72BB-4CCC-9DAE-A6C14F5890E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A56551A-72BB-4CCC-9DAE-A6C14F5890E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A56551A-72BB-4CCC-9DAE-A6C14F5890E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A56551A-72BB-4CCC-9DAE-A6C14F5890E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EBFC7631-1B44-4FC8-B50F-609BE62660CD} = {13B8E3F1-8796-41EA-9998-1D8FC5529CF6}
+		{5CC2260E-8472-40A1-B03F-B83DCFF9D248} = {13B8E3F1-8796-41EA-9998-1D8FC5529CF6}
+		{4A56551A-72BB-4CCC-9DAE-A6C14F5890E0} = {13B8E3F1-8796-41EA-9998-1D8FC5529CF6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9362E8B5-F112-4B44-B3F4-04F598A78159}

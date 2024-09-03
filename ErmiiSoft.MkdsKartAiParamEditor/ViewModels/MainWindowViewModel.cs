@@ -37,7 +37,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
         if (await _storageProvider.OpenFilePickerAsync(options) is [var pickedFile])
         {
-            
+            await KartAiParamsEditorViewModel.LoadFileAsync(pickedFile.Path.AbsolutePath);
         }
     }
 }

@@ -1,8 +1,28 @@
-﻿namespace ErmiiSoft.MkdsKartAiParamEditor.ViewModels;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ErmiiSoft.NitroKart.CharacterKart;
+
+namespace ErmiiSoft.MkdsKartAiParamEditor.ViewModels;
 
 public partial class KartAiParamsEditorEntryViewModel : ViewModelBase
 {
-    public uint RivalAggressiveness { get; set; }
-    public uint GroupControl { get; set; }
-    public uint CpuRubberBanding { get; set; }
+    [ObservableProperty]
+    private KartAiParamEntry _entry = new();
+
+    public double RivalAggressiveness
+    {
+        get => Entry.RivalAggressiveness; 
+        set => Entry.RivalAggressiveness = value;
+    }
+
+    public double GroupControl
+    {
+        get => Entry.GroupControl; 
+        set => Entry.GroupControl = value;
+    }
+
+    public double CpuRubberBanding
+    {
+        get => Entry.CpuRubberBanding; 
+        set => Entry.CpuRubberBanding = value;
+    }
 }

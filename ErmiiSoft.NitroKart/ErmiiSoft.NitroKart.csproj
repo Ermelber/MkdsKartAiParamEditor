@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MarioKartToolbox\src\HaroohiePals.IO\HaroohiePals.IO.csproj" />
+  </ItemGroup>
+
 </Project>
