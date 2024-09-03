@@ -8,39 +8,94 @@ namespace ErmiiSoft.MkdsKartAiParamEditor.ViewModels;
 public partial class KartAiParamsEditorViewModel : ViewModelBase
 {
     [ObservableProperty]
-    public KartAiParamsEditorEntryViewModel _entryViewModelGrandPrix50cc = new();
+    private int _courseId = 0;
     [ObservableProperty]
-    public KartAiParamsEditorEntryViewModel _entryViewModelGrandPrix100cc = new();
+    private int _courseIdMax = 0;
     [ObservableProperty]
-    public KartAiParamsEditorEntryViewModel _entryViewModelGrandPrix150cc = new();
+    private bool _isReadOnly;
 
-    [ObservableProperty] 
-    public KartAiParamsEditorEntryViewModel _entryViewModelVersusEasy50cc = new();
-    [ObservableProperty] 
-    public KartAiParamsEditorEntryViewModel _entryViewModelVersusNormal50cc = new();
-    [ObservableProperty] 
-    public KartAiParamsEditorEntryViewModel _entryViewModelVersusHard50cc = new();
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelGrandPrix50cc = new();
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelGrandPrix100cc = new();
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelGrandPrix150cc = new();
 
-    [ObservableProperty] 
-    public KartAiParamsEditorEntryViewModel _entryViewModelVersusEasy100cc = new();
-    [ObservableProperty] 
-    public KartAiParamsEditorEntryViewModel _entryViewModelVersusNormal100cc = new();
-    [ObservableProperty] 
-    public KartAiParamsEditorEntryViewModel _entryViewModelVersusHard100cc = new();
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelVersusEasy50cc = new();
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelVersusNormal50cc = new();
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelVersusHard50cc = new();
 
-    [ObservableProperty] 
-    public KartAiParamsEditorEntryViewModel _entryViewModelVersusEasy150cc = new();
-    [ObservableProperty] 
-    public KartAiParamsEditorEntryViewModel _entryViewModelVersusNormal150cc = new();
-    [ObservableProperty] 
-    public KartAiParamsEditorEntryViewModel _entryViewModelVersusHard150cc = new();
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelVersusEasy100cc = new();
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelVersusNormal100cc = new();
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelVersusHard100cc = new();
 
-    private KartAiParam? _kartAiParams;
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelVersusEasy150cc = new();
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelVersusNormal150cc = new();
+    [ObservableProperty]
+    private KartAiParamsEditorEntryViewModel _entryViewModelVersusHard150cc = new();
+
+    private KartAiParam? _kartAiParam;
+
+    public KartAiParamsEditorViewModel()
+    {
+        IsReadOnly = true;
+        PropertyChanged += OnPropertyChanged;
+    }
 
     public async Task LoadFileAsync(string path)
     {
-        _kartAiParams = new KartAiParam(await File.ReadAllBytesAsync(path));
+        IsInitialized = false;
+        IsReadOnly = true;
 
-        await Task.CompletedTask;
+        _kartAiParam = new KartAiParam(await File.ReadAllBytesAsync(path));
+
+        CourseIdMax = _kartAiParam.Entries.Length - 1;
+        CourseId = 0;
+
+        LoadSelectedCourseEntries();
+
+        IsReadOnly = false;
+        IsInitialized = true;
+    }
+    
+    public void LoadSelectedCourseEntries()
+    {
+        if (_kartAiParam is null)
+            return;
+
+        var courseEntry = _kartAiParam.Entries[CourseId];
+
+        EntryViewModelGrandPrix50cc.SetEntry(courseEntry.GrandPrix50cc);
+        EntryViewModelGrandPrix100cc.SetEntry(courseEntry.GrandPrix100cc);
+        EntryViewModelGrandPrix150cc.SetEntry(courseEntry.GrandPrix150cc);
+
+        EntryViewModelVersusEasy50cc.SetEntry(courseEntry.VersusEasy50cc);
+        EntryViewModelVersusNormal50cc.SetEntry(courseEntry.VersusNormal50cc);
+        EntryViewModelVersusHard50cc.SetEntry(courseEntry.VersusHard50cc);
+
+        EntryViewModelVersusEasy100cc.SetEntry(courseEntry.VersusEasy100cc);
+        EntryViewModelVersusNormal100cc.SetEntry(courseEntry.VersusNormal100cc);
+        EntryViewModelVersusHard100cc.SetEntry(courseEntry.VersusHard100cc);
+
+        EntryViewModelVersusEasy150cc.SetEntry(courseEntry.VersusEasy150cc);
+        EntryViewModelVersusNormal150cc.SetEntry(courseEntry.VersusNormal150cc);
+        EntryViewModelVersusHard150cc.SetEntry(courseEntry.VersusHard150cc);
+    }
+
+    private void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (!IsInitialized)
+            return;
+
+        if (e.PropertyName == nameof(CourseId))
+            LoadSelectedCourseEntries();
     }
 }
