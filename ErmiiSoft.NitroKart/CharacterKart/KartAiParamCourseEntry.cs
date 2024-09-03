@@ -40,4 +40,23 @@ public class KartAiParamCourseEntry
         VersusNormal150cc = er.ReadObject<KartAiParamEntry>();
         VersusHard150cc = er.ReadObject<KartAiParamEntry>();
     }
+
+    public void Write(EndianBinaryWriterEx ew)
+    {
+        ew.WriteObject(GrandPrix50cc);
+        ew.WriteObject(GrandPrix100cc);
+        ew.WriteObject(GrandPrix150cc);
+
+        ew.WriteObject(VersusEasy50cc);
+        ew.WriteObject(VersusNormal50cc);
+        ew.WriteObject(VersusHard50cc);
+
+        ew.WriteObject(VersusEasy100cc);
+        ew.WriteObject(VersusNormal100cc);
+        ew.WriteObject(VersusHard100cc);
+
+        ew.WriteObject(VersusEasy150cc);
+        ew.WriteObject(VersusNormal150cc);
+        ew.WriteObject(VersusHard150cc);
+    }
 }

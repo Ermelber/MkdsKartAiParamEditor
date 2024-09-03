@@ -7,6 +7,8 @@ namespace ErmiiSoft.MkdsKartAiParamEditor.ViewModels;
 
 public partial class KartAiParamsEditorViewModel : ViewModelBase
 {
+    public bool IsFileLoaded => _kartAiParam is not null;
+
     [ObservableProperty]
     private int _courseId = 0;
     [ObservableProperty]
@@ -64,6 +66,14 @@ public partial class KartAiParamsEditorViewModel : ViewModelBase
 
         IsReadOnly = false;
         IsInitialized = true;
+    }
+
+    public async Task SaveFileAsync(string path)
+    {
+        if (_kartAiParam is null)
+            return;
+
+        await File.WriteAllBytesAsync(path, _kartAiParam.Write());
     }
     
     public void LoadSelectedCourseEntries()

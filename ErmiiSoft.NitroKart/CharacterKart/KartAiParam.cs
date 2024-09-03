@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ErmiiSoft.NitroKart.CharacterKart;
 
@@ -29,6 +30,14 @@ public class KartAiParam
 
     public byte[] Write()
     {
-        throw new NotImplementedException();
+        using (var m = new MemoryStream())
+        {
+            var ew = new EndianBinaryWriterEx(m, Endianness.LittleEndian);
+
+            foreach (var entry in Entries)
+                entry.Write(ew);
+
+            return m.ToArray();
+        }
     }
 }
